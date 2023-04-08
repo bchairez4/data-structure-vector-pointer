@@ -14,7 +14,7 @@ Vector<T>::Vector() : capacity_(1), size_(0), array_(nullptr) {
 // Set Constructor: Creates vector of specified capacity.
 // Time Complexity: O(N), where N is given by the capacity
 template <class T>
-Vector<T>::Vector(int& capacity) : capacity_(capacity), size_(0), array_(nullptr) {
+Vector<T>::Vector(const int& capacity) : capacity_(capacity), size_(0), array_(nullptr) {
     if (capacity_ <= 0) {
         capacity_ = 1;
     }
@@ -24,7 +24,7 @@ Vector<T>::Vector(int& capacity) : capacity_(capacity), size_(0), array_(nullptr
 // Fill Constructor: Creates vector of specified capacity.
 // Time Complexity: O(N), where N is given by the capacity
 template <class T>
-Vector<T>::Vector(int& capacity, T& data) : capacity_(capacity), size_(0), array_(nullptr) {
+Vector<T>::Vector(const int& capacity, const T& data) : capacity_(capacity), size_(0), array_(nullptr) {
     if (capacity_ <= 0) {
         capacity_ = 1;
     }
@@ -81,7 +81,7 @@ T& Vector<T>::operator[](const int& i) {
 // Pushes data to the beginning of the vector, shifts the rest of the elements over
 // Time Complexity: O(N), where N is the number of elements that need to be scooted over
 template <class T>
-void Vector<T>::push_front(T& data) {
+void Vector<T>::push_front(const T& data) {
     if (size_ >= capacity_ - 1) {
         resize_();
     }
@@ -107,7 +107,7 @@ void Vector<T>::push_front(T& data) {
 // Pushes data to the very end of the array
 // Time Complexity: O(1) amortized, O(N) worst case
 template <class T>
-void Vector<T>::push_back(T& data) {
+void Vector<T>::push_back(const T& data) {
     if (size_ >= capacity_ - 1) {
         resize_();
     }
@@ -120,10 +120,10 @@ void Vector<T>::push_back(T& data) {
 
 // @param: T& replace , where replace is the object you are looking to replace
 // @param: T& data , where data is the object replace is going to be replaced with
-// Goes through vector and replaces all instances in which replace object is found
+// Replaces all instances of replace found with data
 // Time Complexity: O(N), where N is the number of elements in vector
 template <class T>
-void Vector<T>::replace(T& replace, T& data) {
+void Vector<T>::replace(const T& replace, const T& data) {
     if (empty()) {
         std::cout << "The Vector is empty. Failed to replace()" << '\n';
         return;
@@ -294,19 +294,19 @@ void Vector<T>::clear() {
 *****************************************************************************/
 // Time Complexity: O(1)        !!WARNING: UNDEFINED BEHAVIOR IF USED WHEN EMPTY
 template <class T>
-T& Vector<T>::at(int& i) {
+T& Vector<T>::at(const int& i) {
     return array_[i];
 }
 
 // Time Complexity: O(1)        !!WARNING: UNDEFINED BEHAVIOR IF USED WHEN EMPTY
 template <class T>
-T& Vector<T>::front() {
+T& Vector<T>::front() const{
     return array_[0];
 }
 
 // Time Complexity: O(1)        !!WARNING: UNDEFINED BEHAVIOR IF USED WHEN EMPTY
 template <class T>
-T& Vector<T>::back() {
+T& Vector<T>::back() const{
     return array_[size_ - 1];
 }
 
@@ -316,14 +316,15 @@ T& Vector<T>::back() {
 // Searches array to see if data is in, boolean return
 // Time Complexity: O(N), where N is the number of elements in the vector
 template <class T>
-bool Vector<T>::contains(T& data) {
+bool Vector<T>::contains(const T& data) const {
     if (empty()) {
         return false;
     }
 
-    int contain = search(array_, size_, data);
-    if (contain != -1) {
-        return true;
+    for (int i = 0; i < size_; ++i) {
+        if (array_[i] == data) {
+            return true;
+        }
     }
     
     return false;
@@ -350,14 +351,14 @@ int Vector<T>::size() const {
 // Searches array to find first occurence of data, returns -1 if not found
 // Time Complexity: O(N), where N is the number of elements in the vector
 template <class T>
-int Vector<T>::find(T& data) {
+int Vector<T>::find(const T& data) {
     return search(array_, size_, data);
 }
 
 // Counts the number of times a certain element appears in the array
 // Time Complexity: O(N), where N is the number of elements in the vector
 template <class T>
-int Vector<T>::count(T& data) {
+int Vector<T>::count(const T& data) const {
     if (empty()) {
         std::cout << "The Vector is empty. Failed to perform count" << '\n';
         return 0;
@@ -371,21 +372,6 @@ int Vector<T>::count(T& data) {
     }
 
     return count;
-}
-
-// Prints all elements within the array
-// Time Complexity: O(N), where N is the number of elements in the vector
-template <class T>
-void Vector<T>::print() {
-    if (empty())
-    {
-        std::cout << "Failed to execute printing. The Vector is currently empty." << '\n';
-        return;
-    }
-
-    for (int i = 0; i < size_; i++) {
-        std::cout << "Vector[" << i << "]: " << array_[i] << '\n';
-    }
 }
 
 /*****************************************************************************

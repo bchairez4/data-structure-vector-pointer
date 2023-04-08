@@ -20,31 +20,30 @@ class Vector{
         void shrink_();
     public:
         Vector();
-        Vector(int& capacity);
-        Vector(int& capacity, T& data);
+        Vector(const int& capacity);
+        Vector(const int& capacity, const T& data);
         Vector(Vector<T>& other);
         ~Vector();
         T& operator=(const Vector<T>& other);
         T& operator[](const int& i);
-        void push_front(T& data);
-        void push_back(T& data);
-        T& at(int& i);
-        T& front();
-        T& back();
-        void replace(T& replace, T& data);
+        void push_front(const T& data);
+        void push_back(const T& data);
+        T& at(const int& i);
+        T& front() const;
+        T& back() const;
+        void replace(const T& replace, const T& data);
         void reverse();
         void pop_front();
         void pop_back();
         void erase(const int& i);
         void erase_elements(T& data);
         void clear();
-        bool contains(T& data);
+        bool contains(const T& data) const;
         bool empty() const;
         int capacity() const;
         int size() const;
-        int find(T& data);
-        int count(T& data);
-        void print();
+        int find(const T& data);
+        int count(const T& data) const;
 };
 
 #endif

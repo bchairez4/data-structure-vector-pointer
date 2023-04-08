@@ -18,7 +18,7 @@ void memoryManage(T* &array) {
 
 // Searches a given array for a specified element, returns i location of first occurence of element
 template <class T>
-int search(T* &array, int& size, T& data) {
+int search(T* &array, const int& size, const T& data) {
     int i_loc = -1;
 
     for (int i = 0; i < size; ++i) {
