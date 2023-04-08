@@ -125,7 +125,6 @@ void Vector<T>::push_back(const T& data) {
 template <class T>
 void Vector<T>::replace(const T& replace, const T& data) {
     if (empty()) {
-        std::cout << "The Vector is empty. Failed to replace()" << '\n';
         return;
     }
 
@@ -141,7 +140,7 @@ void Vector<T>::replace(const T& replace, const T& data) {
 template <class T>
 void Vector<T>::reverse() {
     if (empty()) {
-        std::cout<<"Failed to execute reverse. The vector is empty." <<'\n';
+        return;
     }
 
     T* new_array = new T[capacity_];
@@ -162,7 +161,6 @@ void Vector<T>::reverse() {
 template <class T>
 void Vector<T>::pop_front() {
     if (empty()) {
-        std::cout << "Failed to execute popFront. The Vector is currently empty." << '\n';
         return;
     }
 
@@ -187,7 +185,6 @@ void Vector<T>::pop_front() {
 template <class T>
 void Vector<T>::pop_back() {
     if (empty()) {
-        std::cout << "Failed to execute popBack. The Vector is currently empty." << '\n';
         return;
     }
     
@@ -208,7 +205,6 @@ void Vector<T>::pop_back() {
 template <class T>
 void Vector<T>::erase(const int& i_loc) {
     if (empty()) {
-        std::cout << "The Vector is empty. Failure to erase()" << '\n';
         return;
     }
 
@@ -246,7 +242,6 @@ void Vector<T>::erase(const int& i_loc) {
 template <class T>
 void Vector<T>::erase_elements(T& data) {
     if (empty()) {
-        std::cout << "Failed to execute erasure. Vector is empty." << '\n';
         return;
     }
 
@@ -360,7 +355,6 @@ int Vector<T>::find(const T& data) {
 template <class T>
 int Vector<T>::count(const T& data) const {
     if (empty()) {
-        std::cout << "The Vector is empty. Failed to perform count" << '\n';
         return 0;
     }
     int count = 0;
@@ -394,12 +388,10 @@ void Vector<T>::resize_() {
 template <class T>
 void Vector<T>::shrink_() {
     if (empty()) {
-        std::cout << "Failed to execute shrinking. Vector is empty" << '\n';
         return;
     }
 
     if (size_ == capacity_) {
-        std::cout << "Already shrunk enough." << '\n';
         return;
     }
 
