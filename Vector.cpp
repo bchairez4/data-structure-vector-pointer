@@ -14,7 +14,7 @@ Vector<T>::Vector() : capacity_(1), size_(0), array_(nullptr) {
 // Set Constructor: Creates vector of specified capacity.
 // Time Complexity: O(N), where N is given by the capacity
 template <class T>
-Vector<T>::Vector(const int& capacity) : capacity_(capacity), size_(0), array_(nullptr) {
+Vector<T>::Vector(int& capacity) : capacity_(capacity), size_(0), array_(nullptr) {
     if (capacity_ <= 0) {
         capacity_ = 1;
     }
@@ -24,7 +24,7 @@ Vector<T>::Vector(const int& capacity) : capacity_(capacity), size_(0), array_(n
 // Fill Constructor: Creates vector of specified capacity.
 // Time Complexity: O(N), where N is given by the capacity
 template <class T>
-Vector<T>::Vector(const int& capacity, const T& data) : capacity_(capacity), size_(0), array_(nullptr) {
+Vector<T>::Vector(int& capacity, const T& data) : capacity_(capacity), size_(0), array_(nullptr) {
     if (capacity_ <= 0) {
         capacity_ = 1;
     }
