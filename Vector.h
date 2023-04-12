@@ -18,8 +18,8 @@ class Vector{
         void shrink_();
     public:
         Vector();
-        Vector(int& capacity);
-        Vector(int& capacity, const T& data);
+        Vector(const int& capacity);
+        Vector(const int& capacity, const T& data);
         Vector(Vector<T>& other);
         ~Vector();
         T& operator=(const Vector<T>& other);
