@@ -23,12 +23,12 @@ class Vector{
         Vector(Vector<T>& other);
         ~Vector();
         T& operator=(const Vector<T>& other);
-        T& operator[](const int& i);
-        void push_front(const T& data);
-        void push_back(const T& data);
-        T& at(const int& i);
+        T& operator[](const int& i) const;
+        T& at(const int& i) const;
         T& front() const;
         T& back() const;
+        void push_front(const T& data);
+        void push_back(const T& data);
         void replace(const T& replace, const T& data);
         void reverse();
         void pop_front();
