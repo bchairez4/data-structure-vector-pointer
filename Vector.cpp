@@ -71,7 +71,7 @@ T& Vector<T>::operator=(const Vector<T>& other) {
 
 // Time Complexity: O(1)
 template <class T>
-T& Vector<T>::operator[](const int& i) {
+T& Vector<T>::operator[](const int& i) const {
     return array_[i];
 }
 
@@ -289,7 +289,7 @@ void Vector<T>::clear() {
 *****************************************************************************/
 // Time Complexity: O(1)        !!WARNING: UNDEFINED BEHAVIOR IF USED WHEN EMPTY
 template <class T>
-T& Vector<T>::at(const int& i) {
+T& Vector<T>::at(const int& i) const {
     return array_[i];
 }
 
