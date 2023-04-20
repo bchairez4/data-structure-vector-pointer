@@ -1,7 +1,6 @@
 /*****************************************************************************
 *    Brian Chairez                                                           *
 *    Goal: Manual implementation of std::vector using dynamic array pointers *
-*    Progess: Basic implementation and functions are complete                *
 *****************************************************************************/
 
 #ifndef VECTOR_H
